@@ -207,6 +207,9 @@ http.route({
         Dietary restrictions: ${dietary_restrictions}
         
         As a professional nutrition coach:
+        - **STRICTLY adhere to dietary restrictions**:
+          - "Vegetarian" = No meat, poultry, or fish; eggs/dairy allowed.
+          - "Vegan" = No animal products (meat, dairy, eggs, honey, etc.).
         - Calculate appropriate daily calorie intake based on the person's stats and goals
         - Create a balanced meal plan with proper macronutrient distribution
         - Include a variety of nutrient-dense foods while respecting dietary restrictions
