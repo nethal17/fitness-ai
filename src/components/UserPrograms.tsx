@@ -17,24 +17,24 @@ const UserPrograms = () => {
     <div className="w-full pb-24 pt-16 relative">
       <div className="container mx-auto max-w-6xl px-4">
         {/* HEADER- PROGRAM GALLERY */}
-        <div className="bg-card/90 backdrop-blur-sm border border-border rounded-lg overflow-hidden mb-16">
+        <div className="bg-card backdrop-blur-sm border rounded-lg overflow-hidden mb-16 border-primary">
           {/* HEADER BAR */}
-          <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-background/70">
+          <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-background/10">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-primary"></div>
               <span className="text-sm text-primary font-medium">Program Gallery</span>
             </div>
-            <div className="text-sm text-muted-foreground">Featured Plans</div>
+            <div className="text-sm text-gray-300">Featured Plans</div>
           </div>
 
           {/* HEADER CONTENT */}
           <div className="p-8 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-foreground">AI-Generated </span>
+              <span className="text-background">AI-Generated </span>
               <span className="text-primary">Programs</span>
             </h2>
 
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
+            <p className="text-lg text-gray-400/90 max-w-xl mx-auto mb-10">
               Explore personalized fitness plans our AI assistant has created for other users
             </p>
 
@@ -69,15 +69,15 @@ const UserPrograms = () => {
           {USER_PROGRAMS.map((program) => (
             <Card
               key={program.id}
-              className="bg-card/90 backdrop-blur-sm border border-border hover:border-primary/50 transition-colors overflow-hidden"
+              className="bg-card backdrop-blur-sm border border-border hover:border-primary/50 transition-colors overflow-hidden border-primary"
             >
               {/* Card header with user info */}
-              <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/70">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/10">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-primary"></div>
                   <span className="text-sm text-primary">USER.{program.id}</span>
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-background">
                   {program.fitness_level.toUpperCase()}
                 </div>
               </div>
@@ -92,7 +92,7 @@ const UserPrograms = () => {
                     />
                   </div>
                   <div>
-                    <CardTitle className="text-xl text-foreground">
+                    <CardTitle className="text-xl text-background">
                       {program.first_name}
                       <span className="text-primary">.exe</span>
                     </CardTitle>
@@ -124,7 +124,7 @@ const UserPrograms = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-center">
-                        <h3 className="font-medium text-foreground">
+                        <h3 className="font-medium text-background">
                           {program.workout_plan.title}
                         </h3>
                       </div>
@@ -140,7 +140,7 @@ const UserPrograms = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-center">
-                        <h3 className="font-medium text-foreground">{program.diet_plan.title}</h3>
+                        <h3 className="font-medium text-background">{program.diet_plan.title}</h3>
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
                         System optimized nutrition
@@ -154,7 +154,7 @@ const UserPrograms = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between items-center">
-                        <h3 className="font-medium text-foreground">AI Safety Protocols</h3>
+                        <h3 className="font-medium text-background">AI Safety Protocols</h3>
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
                         Protection systems enabled
@@ -165,7 +165,7 @@ const UserPrograms = () => {
 
                 {/* Program description */}
                 <div className="mt-5 pt-5 border-t border-border">
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-background">
                     <span className="text-primary">&gt; </span>
                     {program.workout_plan.description.substring(0, 120)}...
                   </div>
@@ -173,7 +173,7 @@ const UserPrograms = () => {
               </CardContent>
 
               <CardFooter className="px-5 py-4 border-t border-border">
-                <Link href={`/programs/${program.id}`} className="w-full">
+                <Link href="/generate-program" className="w-full">
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                     View Program Details
                     <ChevronRight className="ml-2 h-4 w-4" />
@@ -189,13 +189,13 @@ const UserPrograms = () => {
           <Link href="/generate-program">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg"
+              className="bg-primary text-background px-8 py-6 text-lg border border-primary hover:text-primary hover:bg-background"
             >
               Generate Your Program
               <Sparkles className="ml-2 h-5 w-5" />
             </Button>
           </Link>
-          <p className="text-muted-foreground mt-4">
+          <p className="text-foreground mt-4">
             Join 500+ users with AI-customized fitness programs
           </p>
         </div>
