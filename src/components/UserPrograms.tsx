@@ -69,7 +69,7 @@ const UserPrograms = () => {
           {USER_PROGRAMS.map((program) => (
             <Card
               key={program.id}
-              className="bg-card backdrop-blur-sm border border-border hover:border-primary/50 transition-colors overflow-hidden border-primary"
+              className="bg-card backdrop-blur-sm border hover:border-primary/50 transition-colors overflow-hidden border-primary"
             >
               {/* Card header with user info */}
               <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/10">

@@ -1,6 +1,5 @@
 "use client";
 
-import CornerElements from "@/components/CornerElements";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { vapi } from "@/lib/vapi";
