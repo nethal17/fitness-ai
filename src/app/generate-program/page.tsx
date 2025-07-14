@@ -1,5 +1,6 @@
 "use client";
 
+import CornerElements from "@/components/CornerElements";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { vapi } from "@/lib/vapi";
@@ -146,15 +147,15 @@ const GenerateProgramPage = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen text-foreground overflow-hidden  pb-6 pt-24">
+    <div className="flex flex-col min-h-screen text-foreground overflow-hidden  pb-6 pt-12">
       <div className="container mx-auto px-4 h-full max-w-5xl">
         {/* Title */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold font-mono">
+          <h1 className="text-3xl font-bold font-mono text-foreground">
             <span>Generate Your </span>
             <span className="text-primary uppercase">Fitness Program</span>
           </h1>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-gray-500 mt-2">
             Have a voice conversation with our AI assistant to create your personalized plan
           </p>
         </div>
@@ -162,7 +163,7 @@ const GenerateProgramPage = () => {
         {/* VIDEO CALL AREA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* AI ASSISTANT CARD */}
-          <Card className="bg-card/90 backdrop-blur-sm border border-border overflow-hidden relative">
+          <Card className="bg-card backdrop-blur-sm border border-border overflow-hidden relative shadow-lg shadow-sky-900">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
               {/* AI VOICE ANIMATION */}
               <div
@@ -200,28 +201,28 @@ const GenerateProgramPage = () => {
                   <img
                     src="/avatar-pulse-mind.jpg"
                     alt="AI Assistant"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover border border-primary rounded-full"
                   />
                 </div>
               </div>
 
-              <h2 className="text-xl font-bold text-foreground">CodeFlex AI</h2>
-              <p className="text-sm text-muted-foreground mt-1">Fitness & Diet Coach</p>
+              <h2 className="text-xl font-bold text-primary">PulseMind AI</h2>
+              <p className="text-sm text-background mt-1">Fitness & Diet Coach</p>
 
               {/* SPEAKING INDICATOR */}
 
               <div
-                className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border ${
+                className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-primary/40 border border-border ${
                   isSpeaking ? "border-primary" : ""
                 }`}
               >
                 <div
-                  className={`w-2 h-2 rounded-full ${
-                    isSpeaking ? "bg-primary animate-pulse" : "bg-muted"
+                  className={`w-3 h-3 rounded-full ${
+                    isSpeaking ? "bg-green-600 animate-pulse" : "bg-primary"
                   }`}
                 />
 
-                <span className="text-xs text-muted-foreground">
+                <span className="text-xs text-primary">
                   {isSpeaking
                     ? "Speaking..."
                     : callActive
@@ -235,7 +236,7 @@ const GenerateProgramPage = () => {
           </Card>
 
           {/* USER CARD */}
-          <Card className={`bg-card/90 backdrop-blur-sm border overflow-hidden relative`}>
+          <Card className={`bg-card backdrop-blur-sm border overflow-hidden relative shadow-lg shadow-sky-900`}>
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
               {/* User Image */}
               <div className="relative size-32 mb-4">
@@ -243,37 +244,39 @@ const GenerateProgramPage = () => {
                   src={user?.imageUrl}
                   alt="User"
                   // ADD THIS "size-full" class to make it rounded on all images
-                  className="size-full object-cover rounded-full"
+                  className="size-full object-cover rounded-full border border-primary"
                 />
               </div>
 
-              <h2 className="text-xl font-bold text-foreground">You</h2>
-              <p className="text-sm text-muted-foreground mt-1">
+              <h2 className="text-xl font-bold text-primary">You</h2>
+              <p className="text-sm text-background mt-1">
                 {user ? (user.firstName + " " + (user.lastName || "")).trim() : "Guest"}
               </p>
 
               {/* User Ready Text */}
-              <div className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border`}>
-                <div className={`w-2 h-2 rounded-full bg-muted`} />
-                <span className="text-xs text-muted-foreground">Ready</span>
+              <div className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-primary/40 border border-primary`}>
+                <div className={`w-3 h-3 rounded-full bg-green-600`} />
+                <span className="text-xs text-primary">Ready</span>
               </div>
             </div>
           </Card>
+  
+          
         </div>
 
         {/* MESSAGE COINTER  */}
         {messages.length > 0 && (
           <div
             ref={messageContainerRef}
-            className="w-full bg-card/90 backdrop-blur-sm border border-border rounded-xl p-4 mb-8 h-64 overflow-y-auto transition-all duration-300 scroll-smooth"
+            className="w-full bg-card backdrop-blur-sm border border-border rounded-sm p-4 mb-8 h-64 overflow-y-auto transition-all duration-300 scroll-smooth"
           >
             <div className="space-y-3">
               {messages.map((msg, index) => (
                 <div key={index} className="message-item animate-fadeIn">
-                  <div className="font-semibold text-xs text-muted-foreground mb-1">
+                  <div className="font-semibold text-xs text-primary mb-1">
                     {msg.role === "assistant" ? "CodeFlex AI" : "You"}:
                   </div>
-                  <p className="text-foreground">{msg.content}</p>
+                  <p className="text-background">{msg.content}</p>
                 </div>
               ))}
 
@@ -292,12 +295,12 @@ const GenerateProgramPage = () => {
         {/* CALL CONTROLS */}
         <div className="w-full flex justify-center gap-4">
           <Button
-            className={`w-40 text-xl rounded-3xl ${
+            className={`w-40 text-xl rounded-3xl mt-4 h-auto ${
               callActive
                 ? "bg-destructive hover:bg-destructive/90"
                 : callEnded
                   ? "bg-green-600 hover:bg-green-700"
-                  : "bg-primary hover:bg-primary/90"
+                  : "bg-primary hover:bg-background border border-primary hover:text-primary"
             } text-white relative`}
             onClick={toggleCall}
             disabled={connecting || callEnded}
