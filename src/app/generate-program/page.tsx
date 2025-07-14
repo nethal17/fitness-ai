@@ -267,7 +267,7 @@ const GenerateProgramPage = () => {
         {messages.length > 0 && (
           <div
             ref={messageContainerRef}
-            className="w-full bg-card backdrop-blur-sm border border-border rounded-sm p-4 mb-8 h-64 overflow-y-auto transition-all duration-300 scroll-smooth"
+            className="w-full bg-card backdrop-blur-sm border border-border rounded-lg p-4 mb-8 h-64 overflow-y-auto transition-all duration-300 scroll-smooth"
           >
             <div className="space-y-3">
               {messages.map((msg, index) => (
@@ -294,7 +294,7 @@ const GenerateProgramPage = () => {
         {/* CALL CONTROLS */}
         <div className="w-full flex justify-center gap-4">
           <Button
-            className={`w-40 text-xl rounded-3xl mt-4 h-auto ${
+            className={`w-40 text-xl rounded-3xl mt-2 h-auto ${
               callActive
                 ? "bg-destructive hover:bg-destructive/90"
                 : callEnded
