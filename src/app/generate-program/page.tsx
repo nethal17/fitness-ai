@@ -162,7 +162,7 @@ const GenerateProgramPage = () => {
         {/* VIDEO CALL AREA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* AI ASSISTANT CARD */}
-          <Card className="bg-card backdrop-blur-sm border border-border overflow-hidden relative shadow-lg shadow-sky-900">
+          <Card className="bg-card backdrop-blur-sm border border-border overflow-hidden relative shadow-lg">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
               {/* AI VOICE ANIMATION */}
               <div
@@ -235,7 +235,7 @@ const GenerateProgramPage = () => {
           </Card>
 
           {/* USER CARD */}
-          <Card className={`bg-card backdrop-blur-sm border overflow-hidden relative shadow-lg shadow-sky-900`}>
+          <Card className="bg-card backdrop-blur-sm border border-border overflow-hidden relative shadow-lg">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
               {/* User Image */}
               <div className="relative size-32 mb-4">
@@ -259,11 +259,9 @@ const GenerateProgramPage = () => {
               </div>
             </div>
           </Card>
-  
-          
         </div>
 
-        {/* MESSAGE COINTER  */}
+        {/* MESSAGE CONTAINER  */}
         {messages.length > 0 && (
           <div
             ref={messageContainerRef}
